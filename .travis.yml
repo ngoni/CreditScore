@@ -1,0 +1,49 @@
+# require the branch name to be master
+if: branch = master
+
+version: '>= 1.0.0'
+language: android
+jdk: oraclejdk8
+dist: trusty
+
+android:
+  components:
+    - tools
+    - platform-tools
+    # The BuildTools version used by your project
+    - build-tools-30.0.2
+    # The SDK version used to compile your project
+    - android-30
+    # Additional components
+  licenses:
+    - 'android-sdk-license-.+'
+    - 'google-sdk-license-.+'
+
+before_install:
+  - chmod +x gradlew
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
+branches:
+  only:
+    - master
+
+jobs:
+  include:
+    - name: 'Clean Build'
+      stage: 'Clean'
+      script: './gradlew clean build'
+    - name: ' Test Build'
+      stage: 'Test'
+      script: './gradlew test'
+    - name: 'Build Check'
+      stage: 'Build-Check'
+      script: './gradlew build check'
