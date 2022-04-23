@@ -1,4 +1,4 @@
-package com.scribblex.creditscore
+package com.scribblex.creditscore.ui
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import com.scribblex.creditscore.R
 import com.scribblex.creditscore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
