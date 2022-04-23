@@ -1,7 +1,6 @@
 package com.scribblex.creditscore.utils
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Rule
 
 open class BaseUnitTest {
