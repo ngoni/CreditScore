@@ -15,29 +15,29 @@ import org.mockito.kotlin.whenever
 
 
 @ExperimentalCoroutinesApi
-class ApiServiceTest : BaseUnitTest() {
+class RemoteDataSourceTest : BaseUnitTest() {
 
     private lateinit var remoteDataSource: RemoteDataSource
-    private var api = mock<ApiService>()
+    private val apiService = mock<ApiService>()
     private val creditReport = mock<CreditReport>()
 
     @Before
     fun setup() {
-        remoteDataSource = RemoteDataSource(api)
+        remoteDataSource = RemoteDataSource(apiService)
     }
 
     @Test
     fun `GIVEN getCreditReport is called, THEN verify that request is made to api`() {
         runTest {
             remoteDataSource.getCreditReport().first()
-            verify(api, times(1)).getCreditReport()
+            verify(apiService, times(1)).getCreditReport()
         }
     }
 
     @Test
     fun `GIVEN getCreditReport is called, WHEN result is successful THEN response is converted to Flow`() =
         runTest {
-            whenever(api.getCreditReport()).thenReturn(creditReport)
+            whenever(apiService.getCreditReport()).thenReturn(creditReport)
             assertThat(Result.success(creditReport)).isEqualTo(
                 remoteDataSource.getCreditReport().first()
             )
@@ -46,7 +46,7 @@ class ApiServiceTest : BaseUnitTest() {
     @Test
     fun `GIVEN getCreditReport is called, WHEN result is failure THEN response is converted throw error`() =
         runTest {
-            whenever(api.getCreditReport()).thenThrow(RuntimeException("Network Error"))
+            whenever(apiService.getCreditReport()).thenThrow(RuntimeException("Network Error"))
             assertThat("Something went wrong").isEqualTo(
                 remoteDataSource.getCreditReport().first().exceptionOrNull()?.message
             )
