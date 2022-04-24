@@ -2,7 +2,7 @@ package com.scribblex.creditscore.data.repository
 
 import com.google.common.truth.Truth.assertThat
 import com.scribblex.creditscore.data.entities.CreditReport
-import com.scribblex.creditscore.data.remote.RemoteDataSource
+import com.scribblex.creditscore.data.remote.CreditApiServiceImpl
 import com.scribblex.creditscore.utils.BaseUnitTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -17,23 +17,23 @@ import org.mockito.kotlin.whenever
 import java.lang.RuntimeException
 
 @ExperimentalCoroutinesApi
-class CreditRepositoryTest : BaseUnitTest() {
+class CreditRepositoryImplTest : BaseUnitTest() {
 
-    private lateinit var repository: CreditRepository
-    private val remoteDataSource = mock<RemoteDataSource>()
+    private lateinit var repository: CreditRepositoryImpl
+    private val apiServiceImpl = mock<CreditApiServiceImpl>()
     private val creditReport = mock<CreditReport>()
     private val throwable = mock<Throwable>()
 
     @Before
     fun setup() {
-        repository = CreditRepository(remoteDataSource)
+        repository = CreditRepositoryImpl(apiServiceImpl)
     }
 
     @Test
     fun `GIVEN getCreditReport is called, THEN verify repository request is made to api`() =
         runTest {
             repository.getCreditReport()
-            verify(remoteDataSource, times(1)).getCreditReport()
+            verify(apiServiceImpl, times(1)).getCreditReport()
         }
 
     @Test

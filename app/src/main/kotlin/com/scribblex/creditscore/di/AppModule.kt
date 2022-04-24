@@ -1,8 +1,8 @@
 package com.scribblex.creditscore.di
 
-import com.scribblex.creditscore.data.remote.ApiService
-import com.scribblex.creditscore.data.remote.RemoteDataSource
-import com.scribblex.creditscore.data.repository.CreditRepository
+import com.scribblex.creditscore.data.remote.CreditApiService
+import com.scribblex.creditscore.data.remote.CreditApiServiceImpl
+import com.scribblex.creditscore.data.repository.CreditRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,16 +22,16 @@ object AppModule {
     fun provideRetrofit(): Retrofit = setupRetrofit()
 
     @Provides
-    fun provideApiService(retrofit: Retrofit): ApiService =
-        retrofit.create(ApiService::class.java)
+    fun provideApiService(retrofit: Retrofit): CreditApiService =
+        retrofit.create(CreditApiService::class.java)
 
     @Singleton
     @Provides
-    fun provideRemoteDataSource(apiService: ApiService) = RemoteDataSource(apiService)
+    fun provideRemoteDataSource(apiService: CreditApiService) = CreditApiServiceImpl(apiService)
 
     @Singleton
     @Provides
-    fun provideCreditRepository(remoteDataSource: RemoteDataSource) = CreditRepository(remoteDataSource)
+    fun provideCreditRepository(apiImpl: CreditApiServiceImpl) = CreditRepositoryImpl(apiImpl)
 
     private fun setupRetrofit(): Retrofit {
         val logging = HttpLoggingInterceptor()
