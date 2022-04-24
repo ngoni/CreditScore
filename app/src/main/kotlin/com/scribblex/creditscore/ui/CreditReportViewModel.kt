@@ -2,7 +2,6 @@ package com.scribblex.creditscore.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.scribblex.creditscore.data.entities.CreditReport
 import com.scribblex.creditscore.data.repository.CreditRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
