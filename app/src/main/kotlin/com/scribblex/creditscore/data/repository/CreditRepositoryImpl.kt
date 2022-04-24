@@ -9,7 +9,7 @@ class CreditRepositoryImpl @Inject constructor(
     private val apiImpl: CreditApiServiceImpl
 ) : CreditRepository {
 
-    override suspend fun loadCreditReport(): Flow<Result<CreditReport>> {
+    override suspend fun getCreditReport(): Flow<Result<CreditReport>> {
         return apiImpl.getCreditReport()
     }
 }

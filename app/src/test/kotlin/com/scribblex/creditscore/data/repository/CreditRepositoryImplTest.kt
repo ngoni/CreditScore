@@ -32,7 +32,7 @@ class CreditRepositoryImplTest : BaseUnitTest() {
     @Test
     fun `GIVEN getCreditReport is called, THEN verify repository request is made to api`() =
         runTest {
-            repository.loadCreditReport()
+            repository.getCreditReport()
             verify(apiServiceImpl, times(1)).getCreditReport()
         }
 
@@ -40,18 +40,18 @@ class CreditRepositoryImplTest : BaseUnitTest() {
     fun `GIVEN getCreditReport returns successful response, THEN credit report is emitted`() =
         runTest {
             mockNetworkResponse(success = true)
-            assertThat(Result.success(creditReport)).isEqualTo(repository.loadCreditReport().first())
+            assertThat(Result.success(creditReport)).isEqualTo(repository.getCreditReport().first())
         }
 
     @Test
     fun `GIVEN getCreditReport returns failure response, THEN exception is emitted`() = runTest {
         mockNetworkResponse(success = false)
         val runtimeException = Result.failure<RuntimeException>(throwable)
-        assertThat(runtimeException).isEqualTo(repository.loadCreditReport().first())
+        assertThat(runtimeException).isEqualTo(repository.getCreditReport().first())
     }
 
     private suspend fun mockNetworkResponse(success: Boolean = true) {
-        whenever(repository.loadCreditReport()).thenReturn(
+        whenever(repository.getCreditReport()).thenReturn(
             flow {
                 emit(if (success) Result.success(creditReport) else Result.failure(throwable))
             }
