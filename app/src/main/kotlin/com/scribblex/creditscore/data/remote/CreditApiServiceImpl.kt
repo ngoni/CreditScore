@@ -9,8 +9,8 @@ import javax.inject.Inject
 import kotlin.Result.Companion.failure
 import kotlin.Result.Companion.success
 
-class RemoteDataSource @Inject constructor(
-    private val apiService: ApiService
+class CreditApiServiceImpl @Inject constructor(
+    private val apiService: CreditApiService
 ) {
     suspend fun getCreditReport(): Flow<Result<CreditReport>> {
         return flow {
