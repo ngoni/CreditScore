@@ -7,13 +7,12 @@
 - Stateflow
 - ViewModels
 
-#Architecture and Design Concepts
+###Architecture and Design Concepts
 - MVVM Architecture Pattern
 - SOLID Principles
 - Test Driven Development
 
 ### Testing Strategy
-#Local Testing
 
 Unit Testing
 - Repository layer
