@@ -7,7 +7,7 @@
 - Stateflow
 - ViewModels
 
-###Architecture and Design Concepts
+### Architecture and Design Concepts
 - MVVM Architecture Pattern
 - SOLID Principles
 - Test Driven Development
