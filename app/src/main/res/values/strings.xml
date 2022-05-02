@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Creditscore</string>
+    <string name="out_of_seven_hundred">out of 700</string>
+    <string name="your_credit_score_is">Your credit score is</string>
 </resources>
