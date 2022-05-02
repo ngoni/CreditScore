@@ -20,7 +20,7 @@ import com.scribblex.creditscore.ui.theme.fonts
 import com.scribblex.creditscore.ui.theme.getColor
 
 @Composable
-fun DonutTextComponent(modifier: Modifier) {
+fun DonutTextComponent(modifier: Modifier, score: String, scoreBand: String) {
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -35,11 +35,13 @@ fun DonutTextComponent(modifier: Modifier) {
         )
         TextComponent(
             modifier = textModifier,
-            text = styledText(text = "327")
+            text = styledText(text = score)
         )
+
+        val total = stringResource(R.string.out_of_total, scoreBand)
         TextComponent(
             modifier = textModifier,
-            text = stringResource(R.string.out_of_seven_hundred)
+            text = total
         )
     }
 }
@@ -66,7 +68,7 @@ fun styledText(text: String): AnnotatedString {
     return buildAnnotatedString {
         withStyle(
             style = SpanStyle(
-                color = getColor().primaryVariant,
+                color = getColor().primary,
                 fontFamily = fonts,
                 fontSize = 32.sp,
                 fontWeight = FontWeight.ExtraBold

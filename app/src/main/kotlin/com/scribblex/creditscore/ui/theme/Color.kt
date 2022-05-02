@@ -24,7 +24,7 @@ import androidx.compose.ui.graphics.Color.Companion.White
 
 // Primary
 val LightOrange = Color(0xFFFF8C66)
-val DarkOrange = Color(0xFFBDCCFF)
+val DarkOrange = Color(0xFFFFBF00)
 
 val LightThemeColors = lightColors(
     primary = DarkOrange,
