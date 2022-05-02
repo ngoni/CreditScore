@@ -1,8 +1,5 @@
 package com.scribblex.creditscore.ui.components
 
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import org.junit.Rule
@@ -14,22 +11,12 @@ class DonutComponentTest {
     val composeTestRule = createComposeRule()
 
     @Test
-    fun check_email_reports_text_is_visible() {
+    fun check_donut_component_is_visible() {
         composeTestRule.setContent {
-            DonutComponent()
+            DonutComponent(0.7f)
         }
         composeTestRule
-            .onNodeWithText("Email reports")
+            .onNodeWithText("Your credit score is")
             .assertExists()
-    }
-
-    @Test
-    fun check_call_to_action_button_is_enabled() {
-        composeTestRule.setContent {
-            DonutComponent()
-        }
-        composeTestRule
-            .onNodeWithText("Start my trial")
-            .assertIsEnabled()
     }
 }
