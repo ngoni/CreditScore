@@ -8,8 +8,8 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.scribblex.creditscore.ui.theme.CreditScoreAppTheme
+import com.scribblex.creditscore.utils.Margins.DP_8
 
 
 @Preview("CreditScoreApp")
@@ -20,7 +20,7 @@ fun CreditScoreApp() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            Box(Modifier.padding(8.dp)) {
+            Box(Modifier.padding(DP_8)) {
                 DonutViewScreen()
             }
         }

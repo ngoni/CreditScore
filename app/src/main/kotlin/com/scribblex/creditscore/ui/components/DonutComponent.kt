@@ -14,7 +14,11 @@ import com.scribblex.creditscore.utils.Margins.DP_300
 
 
 @Composable
-fun DonutComponent(proportion: Float) {
+fun DonutComponent(
+    proportion: Float,
+    score: String,
+    maxScore: String
+) {
 
     ConstraintLayout(
         modifier = Modifier
@@ -60,8 +64,8 @@ fun DonutComponent(proportion: Float) {
         }
         DonutTextComponent(
             modifier = modifier,
-            score = "327",
-            scoreBand = "700"
+            score = score,
+            maxScore = maxScore
         )
     }
 
