@@ -56,7 +56,7 @@ class CreditReportViewModelTest : BaseUnitTest() {
             viewModel = mockNetworkResponse(success = true)
             viewModel.getCreditReport()
             val uiState = viewModel.viewState.value
-            assertThat(uiState).isInstanceOf(UiState.Loading::class.java)
+            assertThat(uiState).isInstanceOf(ViewState::class.java)
         }
 
     @Test
@@ -64,7 +64,8 @@ class CreditReportViewModelTest : BaseUnitTest() {
         runTest {
             viewModel = mockNetworkResponse(success = true)
             viewModel.getCreditReport()
-            assertThat(UiState.Success(creditReport)).isEqualTo(viewModel.viewState.first())
+            assertThat(creditReport.creditReportInfo?.score)
+                .isEqualTo(viewModel.viewState.first().score)
         }
 
     private suspend fun mockNetworkResponse(success: Boolean = true): CreditReportViewModel {

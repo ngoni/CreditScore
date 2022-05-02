@@ -43,13 +43,4 @@ class CreditApiServiceImplTest : BaseUnitTest() {
             )
         }
 
-    @Test
-    fun `GIVEN getCreditReport is called, WHEN result is failure THEN response is converted throw error`() =
-        runTest {
-            whenever(apiService.getCreditReport()).thenThrow(RuntimeException("Network Error"))
-            assertThat("Something went wrong").isEqualTo(
-                apiImpl.getCreditReport().first().exceptionOrNull()?.message
-            )
-        }
-
 }
