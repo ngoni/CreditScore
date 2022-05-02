@@ -13,7 +13,11 @@ class DonutComponentTest {
     @Test
     fun check_donut_component_is_visible() {
         composeTestRule.setContent {
-            DonutComponent(0.7f)
+            DonutComponent(
+                proportion = 0.7f,
+                score = "200",
+                maxScore = "700"
+            )
         }
         composeTestRule
             .onNodeWithText("out of 700")

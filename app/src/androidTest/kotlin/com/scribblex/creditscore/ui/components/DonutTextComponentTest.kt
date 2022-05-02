@@ -16,7 +16,11 @@ class DonutTextComponentTest {
     fun check_credit_score_text_is_visible() {
         composeTestRule.setContent {
             val modifier = Modifier.wrapContentSize()
-            DonutTextComponent(modifier = modifier)
+            DonutTextComponent(
+                modifier = modifier,
+                score = "300",
+                maxScore = "500"
+            )
         }
         composeTestRule
             .onNodeWithText("Your credit score is")
