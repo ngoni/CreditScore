@@ -1,4 +1,10 @@
 package com.scribblex.creditscore.ui
 
-class DonutViewScreen {
+import androidx.compose.runtime.Composable
+import com.scribblex.creditscore.ui.components.DonutComponent
+
+@Composable
+fun DonutViewScreen() {
+    DonutComponent(0.3f)
 }
+

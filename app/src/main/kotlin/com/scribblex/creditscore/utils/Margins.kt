@@ -16,5 +16,5 @@ object Margins {
     val DP_48 = 48.dp
     val DP_56 = 56.dp
     val DP_64 = 64.dp
-    val DP_72 = 72.dp
+    val DP_300 = 300.dp
 }

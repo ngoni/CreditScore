@@ -13,34 +13,32 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.scribblex.creditscore.R
 import com.scribblex.creditscore.ui.theme.Typography
 import com.scribblex.creditscore.ui.theme.fonts
 import com.scribblex.creditscore.ui.theme.getColor
 
-@Preview
 @Composable
-fun DonutTextComponent() {
+fun DonutTextComponent(modifier: Modifier) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
     ) {
-        val modifier = Modifier.align(
+        val textModifier = Modifier.align(
             Alignment.CenterHorizontally
         )
         TextComponent(
-            modifier = modifier,
+            modifier = textModifier,
             text = stringResource(R.string.your_credit_score_is),
         )
         TextComponent(
-            modifier = modifier,
+            modifier = textModifier,
             text = styledText(text = "327")
         )
         TextComponent(
-            modifier = modifier,
+            modifier = textModifier,
             text = stringResource(R.string.out_of_seven_hundred)
         )
     }
