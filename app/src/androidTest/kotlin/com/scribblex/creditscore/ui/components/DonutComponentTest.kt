@@ -16,7 +16,7 @@ class DonutComponentTest {
             DonutComponent(0.7f)
         }
         composeTestRule
-            .onNodeWithText("Your credit score is")
+            .onNodeWithText("out of 700")
             .assertExists()
     }
 }
