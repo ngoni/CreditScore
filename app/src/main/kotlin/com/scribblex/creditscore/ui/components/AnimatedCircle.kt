@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+/**
+ * Source: https://github.com/googlecodelabs/android-compose-codelabs
+ * /blob/main/TestingCodelab/app/src/main/java/com/example/compose/
+ * rally/ui/components/RallyAnimatedCircle.kt
+ * */
+
 package com.scribblex.creditscore.ui.components
 
 import androidx.compose.animation.core.CubicBezierEasing
@@ -106,4 +112,5 @@ fun AnimatedCircle(
         }
     }
 }
+
 private enum class AnimatedCircleProgress { START, END }
